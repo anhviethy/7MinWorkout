@@ -12,48 +12,47 @@
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/white"
         android:theme="@style/ToolbarTheme"
-        app:titleTextColor="@color/colorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        app:titleTextColor="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GET READY FOR"
-        android:textStyle="bold"
         android:layout_marginBottom="16dp"
-        android:textSize="@dimen/default_text_size"
+        android:text="GET READY FOR"
         android:textColor="@color/colorAccent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="@dimen/default_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/flRestView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/flProgressBar"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <FrameLayout
-        android:id="@+id/flProgressBar"
+        android:id="@+id/flRestView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/start_border"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolBarExercise">
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="100dp"
-            android:background="@drawable/circular_progress_bar_ready_grey"
-            android:progressDrawable="@drawable/circular_progress_bar_ready"
-            android:indeterminate="false"
             android:layout_height="100dp"
             android:layout_gravity="center"
+            android:background="@drawable/circular_progress_bar_ready_grey"
+            android:indeterminate="false"
             android:max="10"
             android:progress="10"
-            android:rotation="-90"/>
+            android:progressDrawable="@drawable/circular_progress_bar_ready"
+            android:rotation="-90" />
 
         <LinearLayout
             android:layout_width="60dp"
@@ -64,15 +63,41 @@
 
             <TextView
                 android:id="@+id/tvTimer"
-                android:textColor="#FFFFFF"
-                android:text="10"
-                android:textSize="25dp"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </FrameLayout>
+
+    <ImageView
+        android:id="@+id/ivExercise"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_jumping_jacks"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/tvExercise"
+        app:layout_constraintTop_toBottomOf="@id/toolBarExercise" />
+
+    <TextView
+        android:id="@+id/tvExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ExerciseName"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivExercise"
+        app:layout_constraintBottom_toTopOf="@id/flExercise"
+        tools:visibility="visible" />
 
     <FrameLayout
         android:id="@+id/flExercise"
@@ -80,24 +105,25 @@
         android:layout_height="100dp"
         android:background="@drawable/start_border"
         android:visibility="gone"
-        tools:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBarExercise">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExercise"
+        android:layout_marginBottom="8dp"
+        tools:visibility="visible">
 
         <ProgressBar
             android:id="@+id/exerciseProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="100dp"
-            android:background="@drawable/circular_progress_bar_ready_grey"
-            android:progressDrawable="@drawable/circular_progress_bar_ready"
-            android:indeterminate="false"
             android:layout_height="100dp"
             android:layout_gravity="center"
+            android:background="@drawable/circular_progress_bar_ready_grey"
+            android:indeterminate="false"
             android:max="30"
             android:progress="30"
-            android:rotation="-90"/>
+            android:progressDrawable="@drawable/circular_progress_bar_ready"
+            android:rotation="-90" />
 
         <LinearLayout
             android:layout_width="60dp"
@@ -107,18 +133,16 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/tvExercise"
-                android:textColor="#FFFFFF"
-                android:text="30"
-                android:textSize="25dp"
-                android:textStyle="bold"
+                android:id="@+id/tvTimerExercise"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </FrameLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
